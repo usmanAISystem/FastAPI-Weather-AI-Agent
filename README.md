@@ -1,65 +1,88 @@
-# 🌤️ FastAPI Weather AI Agent
+# 🌦️ AI Weather Assistant Agent
 
-A powerful AI Agent built with FastAPI, LangChain & Gemini that provides real-time weather information for any city using tool calling.
+This is a smart Python application built with *FastAPI* and *LangChain* that utilizes the *Gemini 3.8 Flash* model to fetch and analyze real-time weather information for any city.
 
-## ✨ Features
-- 🤖 AI Agent with tool calling capability
-- 🌦️ Real-time weather data for any city
-- ⚡ FastAPI powered REST API
-- 🧠 Powered by Google Gemini 1.5 Flash
-- 📖 Auto-generated Swagger Docs
+---
 
-## 🛠️ Tech Stack
-- **Backend:** FastAPI, Uvicorn
-- **AI Framework:** LangChain, LangGraph
-- **LLM:** ChatGoogleGenerativeAI (Gemini)
-- **Weather API:** p2pclouds
+## 🚀 Features
+* *AI-Powered:* Uses Google's Gemini 3.8 Flash model for intelligent responses.
+* *LangChain Agents:* Implements function-calling tools to dynamically fetch weather data.
+* *Secure Setup:* Uses environment variables to protect API keys and sensitive configuration URLs.
+* *FastAPI Backend:* Provides a modern, fast, and scalable API infrastructure.
+
+---
 
 ## 📁 Project Structure
-
-Fastapi-Agent/
+text
 ├── agents/
-│   └── help.py         # get_weather tool & Agent logic
-├── controllers/
-│   └── query.py        # Query controller
-├── routers/
-│   └── ai.py           # API routes
-├── main.py             # FastAPI entry point
-├── requirements.txt
-├── .env.example
-├── .gitignore
-└── README.md
+│   └── help.py            # Contains Gemini configuration and Weather Tool
+├── main.py                # FastAPI main application gateway
+├── .env                   # Local secret variables (Never commit to GitHub)
+├── .env.example           # Template for environment variables
+├── .gitignore             # Files to ignore in Git tracking
+└── requirements.txt       # Project dependencies
 
 
-## 🚀 Installation & Setup
+---
 
-**1. Clone the repo**
-```bash
-git clone https://github.com/your-username/FastAPI-Weather-AI-Agent.git
-cd FastAPI-Weather-AI-Agent
+## 🛠️ Installation & Setup
 
-2. Create venv
+Follow these steps to set up and run the project locally on your machine:
+
+### 1. Clone the Repository
+bash
+git clone https://github.com
+cd FastApi-Weather-AI-Agent
+
+
+### 2. Create and Activate a Virtual Environment
+bash
+# Create Virtual Environment
 python -m venv venv
-.\venv\Scripts\activate
 
-3. Install dependencies
+# Activate Environment (Windows)
+venv\Scripts\activate
+
+# Activate Environment (Mac/Linux)
+source venv/bin/activate
+
+
+### 3. Install Dependencies
+bash
 pip install -r requirements.txt
 
-4. Setup .env
-Create .env file in root:
-GOOGLE_API_KEY=your_gemini_api_key_here
 
-5. Run server
+### 4. Configure Environment Variables
+1. Duplicate the .env.example file and rename it to .env.
+2. Open the .env file and insert your personal configuration details:
+
+text
+WEATHER_API_URL="https://railway.app"
+GOOGLE_API_KEY="YOUR_ACTUAL_GEMINI_API_KEY"
+
+
+---
+
+## 💻 Running the Application
+
+Start the FastAPI local server using *Uvicorn*:
+
+bash
 uvicorn main:app --reload
 
-Server: http://127.0.0.1:8000🔗 
-🔗API Endpoints
-GET / - Welcome message
-GET /v1/ai/query/?q=your_question - Ask AI
-GET /docs - Swagger Docs
 
-Example:
-/v1/ai/query/?q=what is weather of lahore
+Once running, you can access the interactive API documentation (Swagger UI) at:
+👉 *http://127.0.0*
 
-👨‍💻 Author
-Built with ❤️ for learning Agentic AI
+---
+
+## 🔒 Security Practices
+* The .env file is explicitly included in .gitignore to prevent secret leaks.
+* Always use .env.example to guide other developers on setting up their local keys.
+
+---
+
+## 🛠️ Built With
+* [FastAPI](https://tiangolo.com) - The web framework.
+* [LangChain](https://langchain.com) - Building the AI Agent workflow.
+* [Google Gemini](https://google.dev) - Large Language Model engine.

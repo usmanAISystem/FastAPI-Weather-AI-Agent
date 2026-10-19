@@ -1,3 +1,4 @@
+import os
 from langchain.agents import create_agent
 from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
@@ -7,13 +8,15 @@ load_dotenv()
 
 def get_weather(city: str) -> str:
     """Get weather for a given city."""
-    res= requests.get(f"https://p2pclouds.up.railway.app/v1/learn/weather?city={city}")
+    base_url =os.getenv("WEATHER_API_URL") # paste url in .env file
+    res= requests.get(f"{base_url}?city={city}")
 
     data=res.json()
     return data
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-3.5-flash-lite",
+    model="gemini-3.8-flash",
+    google_api_key=os.getenv("GOOGLE_API_KEY"), # paste google genai api key in .env file
     temperature=0,
     max_tokens=None,
     timeout=None,

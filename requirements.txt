@@ -1,7 +1,6 @@
 fastapi
 uvicorn
-python-dotenv
 requests
+python-dotenv
 langchain
 langchain-google-genai
-langgraph
