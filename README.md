@@ -72,7 +72,7 @@ uvicorn main:app --reload
 
 
 Once running, you can access the interactive API documentation (Swagger UI) at:
-👉 *http://127.0.0*
+👉 
 
 ---
 
